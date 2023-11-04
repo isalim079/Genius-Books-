@@ -11,8 +11,7 @@ const Navbar = () => {
                             return {
                                 fontWeight: isActive ? "bold" : "",
                                 transition: "all 0.2s",
-                                padding: isActive ? "8px 20px" : "",
-                                border: isActive ? "1px solid #3E3E3D" : "",
+                                textDecoration: isActive ? "underline" : "",
                                 color: isPending ? "#3E3E3D" : "#3E3E3D",
                             };
                         }}
@@ -27,8 +26,7 @@ const Navbar = () => {
                             return {
                                 fontWeight: isActive ? "bold" : "",
                                 transition: "all 0.2s",
-                                padding: isActive ? "8px 20px" : "",
-                                border: isActive ? "1px solid #3E3E3D" : "",
+                                textDecoration: isActive ? "underline" : "",
                                 color: isPending ? "#3E3E3D" : "#3E3E3D",
                             };
                         }}
@@ -44,8 +42,7 @@ const Navbar = () => {
                             return {
                                 fontWeight: isActive ? "bold" : "",
                                 transition: "all 0.2s",
-                                padding: isActive ? "8px 20px" : "",
-                                border: isActive ? "1px solid #3E3E3D" : "",
+                                textDecoration: isActive ? "underline" : "",
                                 color: isPending ? "#3E3E3D" : "#3E3E3D",
                             };
                         }}
@@ -60,8 +57,7 @@ const Navbar = () => {
                             return {
                                 fontWeight: isActive ? "bold" : "",
                                 transition: "all 0.2s",
-                                padding: isActive ? "8px 20px" : "",
-                                border: isActive ? "1px solid #3E3E3D" : "",
+                                textDecoration: isActive ? "underline" : "",
                                 color: isPending ? "#3E3E3D" : "#3E3E3D",
                             };
                         }}
@@ -75,7 +71,7 @@ const Navbar = () => {
 
     return (
         <div className="bg-lightCoffeeShade drop-shadow-xl">
-            <div className="navbar max-w-screen-xl mx-auto md:flex md:flex-col md:h-screen md:justify-between md:items-start md:pl-16">
+            <div className="navbar max-w-screen-xl mx-auto md:flex md:flex-col md:h-screen md:justify-around md:items-start md:mr-14 md:ml-14">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -103,7 +99,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div>
-                        <img className="w-24" src="/logo96.png" alt="" />
+                        <img src="/logo96.png" alt="" />
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
