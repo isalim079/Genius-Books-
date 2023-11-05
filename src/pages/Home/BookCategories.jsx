@@ -26,15 +26,18 @@ const BookCategories = () => {
     return (
         <div className="mb-20">
             <div className="flex justify-center">
-            <h1 className="text-5xl md:my-16 text-center text-darkBrownShade uppercase font-bold border-4 border-coffeeColorShade py-3 w-1/2" data-aos="zoom-out">Books Category</h1>
+                <h1
+                    className="text-5xl md:my-16 text-center text-darkBrownShade uppercase font-bold border-4 border-coffeeColorShade py-3 w-1/2"
+                    data-aos="zoom-out"
+                >
+                    Books Category
+                </h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 md:px-28 md:gap-24">
                 {booksCategories.map((booksCategory) => (
                     <>
                         <div>
-                            <div
-                                className="card bg-lightCoffeeShade shadow-xl"
-                            >
+                            <div className="card bg-lightCoffeeShade shadow-xl">
                                 <figure>
                                     <img
                                         className="rounded-b-2xl"
@@ -49,8 +52,9 @@ const BookCategories = () => {
                                     >
                                         {booksCategory.category}
                                     </h2>
+                                    <div className="border border-lightCoffeeShade"></div>
                                     <button
-                                        className="px-4 py-2 bg-oliveGreenShade rounded-md text-white"
+                                        className="px-4 py-2 bg-oliveGreenShade rounded-md text-white mt-1"
                                         data-aos="fade-up"
                                     >
                                         Visit this Category

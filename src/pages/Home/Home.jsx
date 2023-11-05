@@ -1,6 +1,7 @@
 import Banner from "./Banner";
 import BookCategories from "./BookCategories";
 import BookOfTheMonth from "./BookOfTheMonth";
+import Footer from "./Footer";
 import LibraryEvents from "./LibraryEvents";
 
 const Home = () => {
@@ -17,6 +18,9 @@ const Home = () => {
             </div>
             <div>
                 <BookCategories></BookCategories>
+            </div>
+            <div>
+                <Footer></Footer>
             </div>
         </div>
     );
