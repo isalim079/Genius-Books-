@@ -54,26 +54,43 @@ const BookOfTheMonth = () => {
                 <div>
                     {bookOfTheMonth.map((books) => (
                         <>
-                            <div className=" md:px-36 md:py-8" data-aos="fade-up">
+                            <div
+                                className=" md:px-36 md:py-8"
+                                data-aos="fade-up"
+                            >
                                 <div className="card lg:card-side bg-lightCoffeeShade shadow-xl text-darkBrownShade">
                                     <figure>
                                         <img
-                                        className="p-16"
-                                        data-aos="fade-right"
+                                            className="p-16"
+                                            data-aos="fade-right"
                                             src={books.image}
                                             alt="Album"
                                         />
                                     </figure>
                                     <div className="card-body text-right p-16">
-                                        <h2 className="text-3xl font-semibold uppercase underline"  data-aos="zoom-in-down">
+                                        <h2
+                                            className="text-3xl font-semibold uppercase underline"
+                                            data-aos="zoom-in-down"
+                                        >
                                             {books.name}
                                         </h2>
-                                        <p className="text-oliveGreenShade" data-aos="zoom-in-down">
+                                        <p
+                                            className="text-oliveGreenShade"
+                                            data-aos="zoom-in-down"
+                                        >
                                             {books.details}
                                         </p>
                                         <div className="card-actions items-end md:flex-col">
-                                            <p  data-aos="zoom-in-up"><span className="underline font-semibold">Author :</span>  {books.author}</p>
-                                            <button  data-aos="zoom-in-up" className="px-4 py-2 bg-oliveGreenShade text-lightCoffeeShade rounded-md">
+                                            <p data-aos="zoom-in-up">
+                                                <span className="underline font-semibold">
+                                                    Author :
+                                                </span>{" "}
+                                                {books.author}
+                                            </p>
+                                            <button
+                                                data-aos="zoom-in-up"
+                                                className="px-4 py-2 bg-oliveGreenShade text-lightCoffeeShade rounded-md"
+                                            >
                                                 Genre
                                             </button>
                                         </div>
