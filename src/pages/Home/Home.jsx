@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import BookOfTheMonth from "./BookOfTheMonth";
+import LibraryEvents from "./LibraryEvents";
 
 
 
@@ -11,6 +12,9 @@ const Home = () => {
             </div>
             <div>
                 <BookOfTheMonth></BookOfTheMonth>
+            </div>
+            <div>
+                <LibraryEvents></LibraryEvents>
             </div>
             
         </div>
