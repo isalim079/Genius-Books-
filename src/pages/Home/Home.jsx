@@ -6,7 +6,7 @@ import LibraryEvents from "./LibraryEvents";
 
 const Home = () => {
     return (
-        <div>
+        <div className="overflow-hidden">
             <div className="bg-[#F7F2F0]">
                 <Banner></Banner>
             </div>

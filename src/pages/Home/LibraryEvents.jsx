@@ -20,7 +20,8 @@ const LibraryEvents = () => {
     // console.log(libraryEventAndFeatures);
 
     return (
-        <div>
+        <div className="bg-lightCoffeeShade h-fit">
+            <h1 className="text-center md:text-4xl font-bold pb-4 pt-10 md:pb-10 md:pt-28 underline uppercase text-darkBrownShade">Events And Service</h1>
             <LibrarySwipper libraryEventAndFeature={libraryEventAndFeatures}></LibrarySwipper>
         </div>
     );

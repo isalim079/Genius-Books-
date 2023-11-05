@@ -33,18 +33,18 @@ const LibrarySwipper = ({ libraryEventAndFeature }) => {
             {libraryEventAndFeature.map((libraryEvent) => (
                 <SwiperSlide key={libraryEvent._id}>
                     <div>
-                        <div className="absolute bg-gradient-to-r from-black h-full w-full">
+                        <div className="absolute bg-gradient-to-r from-black h-full w-full p-5 md:p-0">
                             <div className=" text-lightCoffeeShade flex flex-col justify-center items-start md:pl-40 h-full space-y-2">
-                            <h1 className="uppercase text-6xl font-semibold" data-aos="zoom-out">
+                            <h1 className="uppercase md:text-6xl font-semibold" data-aos="zoom-out">
                                 {libraryEvent.title}
                             </h1>
                             <div className=" border-2 border-lightCoffeeShade w-[720px]"  data-aos="fade-right"></div>
-                            <p className="pt-1" data-aos="fade-right">
+                            <p className="pt-1 text-sm md:text-base" data-aos="fade-right">
                                 {libraryEvent.subtitle}
                             </p>
 
                             <div>
-                            <button className="px-4 py-2 bg-oliveGreenShade rounded-md"  data-aos="fade-right">
+                            <button className="md:px-4 md:py-2 px-2 py-1 text-xs md:text-base bg-oliveGreenShade md:rounded-md"  data-aos="fade-right">
                                 More Details
                             </button>
                         </div>

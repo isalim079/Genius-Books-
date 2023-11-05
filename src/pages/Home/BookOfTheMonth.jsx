@@ -31,13 +31,13 @@ const BookOfTheMonth = () => {
             <div>
                 <div>
                     <h1
-                        className="text-5xl text-center font-bold text-lightCoffeeShade md:pt-20  underline"
+                        className="md:text-5xl text-center font-bold text-lightCoffeeShade pt-5 md:pt-20  underline"
                         data-aos="fade-up"
                     >
                         BOOK OF THE MONTH
                     </h1>
-                    <div className="flex border border-white justify-center mt-8">
-                        <div className="w-[1100px] mt-2 mb-2 text-lightCoffeeShade">
+                    <div className="flex md:border md:border-white justify-center md:mt-8">
+                        <div className="md:w-[1100px] w-60 text-sm md:text-base mt-2 mb-2 text-lightCoffeeShade">
                             <Marquee speed={70}>
                                 <p>
                                     Every month, we carefully select a literary
@@ -51,36 +51,36 @@ const BookOfTheMonth = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="space-y-10 md:space-y-0">
                     {bookOfTheMonth.map((books) => (
                         <>
                             <div
                                 className=" md:px-36 md:py-8"
                                 data-aos="fade-up"
                             >
-                                <div className="card lg:card-side bg-lightCoffeeShade shadow-xl text-darkBrownShade">
+                                <div className="md:card lg:card-side bg-lightCoffeeShade md:shadow-xl text-darkBrownShade">
                                     <figure>
                                         <img
-                                            className="p-16"
+                                            className="md:p-16 p-10"
                                             data-aos="fade-right"
                                             src={books.image}
                                             alt="Album"
                                         />
                                     </figure>
-                                    <div className="card-body text-right p-16">
+                                    <div className="card-body md:text-right md:p-16">
                                         <h2
-                                            className="text-3xl font-semibold uppercase underline"
+                                            className="md:text-3xl font-semibold uppercase underline"
                                             data-aos="zoom-in-down"
                                         >
                                             {books.name}
                                         </h2>
                                         <p
-                                            className="text-oliveGreenShade"
+                                            className="text-oliveGreenShade text-sm md:text-base"
                                             data-aos="zoom-in-down"
                                         >
                                             {books.details}
                                         </p>
-                                        <div className="card-actions items-end md:flex-col">
+                                        <div className="card-actions md:items-end md:flex-col flex flex-col">
                                             <p data-aos="zoom-in-up">
                                                 <span className="underline font-semibold">
                                                     Author :
@@ -89,7 +89,7 @@ const BookOfTheMonth = () => {
                                             </p>
                                             <button
                                                 data-aos="zoom-in-up"
-                                                className="px-4 py-2 bg-oliveGreenShade text-lightCoffeeShade rounded-md"
+                                                className="px-4 py-2 mt-3 md:mt-0 text-sm md:text-base bg-oliveGreenShade text-lightCoffeeShade rounded-md"
                                             >
                                                 Genre
                                             </button>
