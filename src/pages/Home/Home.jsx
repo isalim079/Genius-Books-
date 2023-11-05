@@ -1,8 +1,7 @@
 import Banner from "./Banner";
+import BookCategories from "./BookCategories";
 import BookOfTheMonth from "./BookOfTheMonth";
 import LibraryEvents from "./LibraryEvents";
-
-
 
 const Home = () => {
     return (
@@ -16,7 +15,9 @@ const Home = () => {
             <div>
                 <LibraryEvents></LibraryEvents>
             </div>
-            
+            <div>
+                <BookCategories></BookCategories>
+            </div>
         </div>
     );
 };

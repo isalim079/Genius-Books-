@@ -13,7 +13,7 @@ const LibraryEvents = () => {
                 setLibraryEventAndFeatures(res.data);
             })
             .catch((error) => {
-                console.log("fetching bookOfTheMonth error", error);
+                console.log("fetching libraryEventsAndFeatures error", error);
             });
     }, []);
 

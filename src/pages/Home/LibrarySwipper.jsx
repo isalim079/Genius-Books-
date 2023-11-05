@@ -11,7 +11,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 const LibrarySwipper = ({ libraryEventAndFeature }) => {
-    console.log(libraryEventAndFeature);
+    // console.log(libraryEventAndFeature);
 
     useEffect(() => {
         Aos.init({
