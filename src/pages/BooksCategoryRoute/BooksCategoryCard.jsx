@@ -1,13 +1,20 @@
 /* eslint-disable react/prop-types */
 import Rating from "react-rating";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BsStar, BsStarFill } from "react-icons/bs";
 
 const BooksCategoryCard = ({ booksCategory }) => {
-    console.log(booksCategory);
+    // console.log(booksCategory);
 
-    const { name, ratingDetails, image, author, bookCategory, description } =
-        booksCategory;
+    const {
+        name,
+        ratingDetails,
+        _id,
+        image,
+        author,
+        bookCategory,
+        description,
+    } = booksCategory;
 
     const { category } = useParams();
 
@@ -67,9 +74,11 @@ const BooksCategoryCard = ({ booksCategory }) => {
                                             </p>
                                         </div>
                                         <div>
-                                            <button className="md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-oliveGreenShade text-lightCoffeeShade">
-                                                Details
-                                            </button>
+                                            <Link to={`/bookDetails/${_id}`}>
+                                                <button className="md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-oliveGreenShade text-lightCoffeeShade">
+                                                    Details
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

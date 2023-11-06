@@ -1,6 +1,50 @@
-import { NavLink } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../router/AuthProvider";
+
+import { BiSolidUserCircle } from "react-icons/bi";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                console.log("you have logged out successfully");
+            })
+            .catch((error) => {
+                console.log(error.code);
+                console.log(error.message);
+            });
+    };
+
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    );
+
+    const handleToggle = (e) => {
+        const clickedItem = e.target;
+        console.log(clickedItem.innerText);
+        if (clickedItem.innerText === "Light") {
+            setTheme("light");
+        }
+        if (clickedItem.innerText === "Dark") {
+            setTheme("dark");
+        }
+        if (clickedItem.innerText === "Retro") {
+            setTheme("retro");
+        }
+        if (clickedItem.innerText === "CupCake") {
+            setTheme("cupcake");
+        }
+    };
+
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+        const localTheme = localStorage.getItem("theme");
+        document.querySelector("html").setAttribute("data-theme", localTheme);
+    }, [theme]);
+
     const navLinks = (
         <>
             <div className="text-base font-normal flex-col md:flex-col flex gap-1 text-center md:text-left md:space-y-8 list-none">
@@ -65,6 +109,28 @@ const Navbar = () => {
                         Borrowed Books
                     </NavLink>
                 </li>
+                <li className="">
+                    <details className="dropdown">
+                        <summary className="m-1">Themes</summary>
+                        <ul
+                            className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52"
+                            onClick={handleToggle}
+                        >
+                            <li name="item1">
+                                <a>Light</a>
+                            </li>
+                            <li name="item2">
+                                <a>Dark</a>
+                            </li>
+                            <li name="item3">
+                                <a>Retro</a>
+                            </li>
+                            <li name="item4">
+                                <a>CupCake</a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
             </div>
         </>
     );
@@ -94,8 +160,7 @@ const Navbar = () => {
                             tabIndex={0}
                             className="dropdown-content menu-xs mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                         >
-                           {navLinks}
-                           
+                            {navLinks}
                         </ul>
                     </div>
                     <div>
@@ -103,12 +168,46 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="px-1">
-                        {navLinks}
-                    </ul>
+                    <ul className="px-1">{navLinks}</ul>
                 </div>
                 <div className="">
-                    <a className="btn">Button</a>
+                    {user ? (
+                        <div className="flex-col ml-6">
+                            <div className="flex-col">
+                                <div>
+                                    {user?.photoURL ? (
+                                        <img
+                                            className="md:w-10 md:h-10 w-8 h-8 md:mb-2 rounded-full"
+                                            src={user?.photoURL}
+                                        />
+                                    ) : (
+                                        <BiSolidUserCircle className="md:text-5xl text-black"></BiSolidUserCircle>
+                                    )}
+                                </div>
+                                <div className=" md:mr-4">
+                                    {user?.displayName ? (
+                                        <p className=" md:text-black text-xs md:text-base underline">
+                                            {user?.displayName}
+                                        </p>
+                                    ) : (
+                                        ""
+                                    )}
+                                </div>
+                            </div>
+                            <button
+                                onClick={handleSignOut}
+                                className="md:px-4 md:py-2 md:bg-oliveGreenShade text-sm md:mt-3 md:text-white  text-black underline md:no-underline"
+                            >
+                                Log Out
+                            </button>
+                        </div>
+                    ) : (
+                        <Link to="/login">
+                            <button className="ml-4 px-10 py-2 bg-oliveGreenShade text-white text-base font-semibold">
+                                Login
+                            </button>
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

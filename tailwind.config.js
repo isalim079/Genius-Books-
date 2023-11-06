@@ -19,6 +19,8 @@ export default {
         themes: [
             "light",
             "dark",
+            "cupcake",
+            "retro",
             {
                 mytheme: {
                     primary: "#FF3811",
