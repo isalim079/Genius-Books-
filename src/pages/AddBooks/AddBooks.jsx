@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import { useState } from "react";
+import Select from "react-select"
 
 const glassEffect = {
     background: "rgba( 255, 255, 255, 0.70 )",
@@ -13,6 +14,15 @@ const glassEffect = {
     border: "1px solid rgba( 255, 255, 255, 0.18 )",
 };
 
+const bookCategories = [
+    {value: "thriller", label: "Thriller"},
+    {value: "biography", label: "Biography"},
+    {value: "horror", label: "Horror"},
+    {value: "comics", label: "Comics"},
+    {value: "scienceFiction", label: "Science Fiction"},
+    {value: "others", label: "Others"},
+]
+
 const AddBooks = () => {
 
     const [ratingDetails, setRatingDetails] = useState(null)
@@ -21,21 +31,33 @@ const AddBooks = () => {
         setRatingDetails(rating)
     }
 
+    const [selectedCategory, setSelectedCategory] = useState(null)
+
+    const handleBookCategory = selectedOptions => {
+        setSelectedCategory(selectedOptions)
+    }
+    // console.log(selectedCategory);
+
+    const handleAddBooks = e => {
+        e.preventDefault()
+        const form = e.target
+    }
+
     return (
-        <div className="bg-[url('https://i.ibb.co/4ZCbZ8S/addBooks.png')] p-20">
+        <div className="bg-[url('https://i.ibb.co/4ZCbZ8S/addBooks.png')] md:p-20 p-2">
             <div
-                className="font-poppins overflow-hidden bg-lightCoffeeShade p-10"
+                className="font-poppins overflow-hidden bg-lightCoffeeShade md:p-10 p-2"
                 style={glassEffect}
             >
-                <h2 className="text-center md:text-3xl text-2xl font-bold underline mt-10 text-blackShade ">
+                <h2 className="text-center md:text-3xl text-xl font-bold underline mt-4 mb-2 md:mb-0 md:mt-10 text-blackShade ">
                     Add Books To Shelf
                 </h2>
                 <form>
-                    <div className=" max-w-screen-xl drop-shadow-xl mx-auto items-center justify-center p-10 grid md:grid-cols-2 gap-x-14">
+                    <div className=" max-w-screen-xl drop-shadow-xl mx-auto items-center justify-center md:p-10 grid md:grid-cols-2 grid-cols-1 gap-x-14">
                         {/* Field -1 -------------------------------- */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-lg font-bold text-blackShade">
+                                <span className="label-text md:text-lg font-bold text-blackShade">
                                     Name of the book
                                 </span>
                             </label>
@@ -44,7 +66,7 @@ const AddBooks = () => {
                                     name="name"
                                     type="text"
                                     placeholder="Book name"
-                                    className="input input-bordered w-full"
+                                    className="input text-sm md:text-base input-bordered w-full"
                                 />
                             </label>
                         </div>
@@ -52,7 +74,7 @@ const AddBooks = () => {
                         {/* Field -2 -------------------------------- */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-lg font-bold text-blackShade">
+                                <span className="label-text md:text-lg font-bold text-blackShade">
                                     {" "}
                                     Enter book cover image URL
                                 </span>
@@ -62,13 +84,13 @@ const AddBooks = () => {
                                     name="image"
                                     type="text"
                                     placeholder="Book cover image URL"
-                                    className="input input-bordered w-full"
+                                    className="input text-sm md:text-base input-bordered w-full"
                                 />
                             </label>
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-lg font-bold text-blackShade">
+                                <span className="label-text md:text-lg font-bold text-blackShade">
                                     {" "}
                                     Quantity of the book
                                 </span>
@@ -78,7 +100,7 @@ const AddBooks = () => {
                                     name="bookQuantity"
                                     type="number"
                                     placeholder="Quantity of the book"
-                                    className="input input-bordered w-full"
+                                    className="input text-sm md:text-base input-bordered w-full"
                                 />
                             </label>
                         </div>
@@ -86,83 +108,21 @@ const AddBooks = () => {
                         {/* Field -3 -------------------------------- */}
                         <div className="">
                             <label className="label">
-                                <span className="label-text text-lg font-semibold text-blackShade">
+                                <span className="label-text md:text-lg font-semibold text-blackShade">
                                     Select book category
                                 </span>
                             </label>
-                            <div className=" grid md:grid-cols-2 gap-x-52 font-semibold">
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="category"
-                                            value="thriller"
-                                            className="radio radio-sm checked:bg-darkBrownShade border-2 border-black"
-                                        />
-                                        <span className="label-text text-base">
-                                            Thriller
-                                        </span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="category"
-                                            value="biography"
-                                            className="radio radio-sm checked:bg-darkBrownShade border-2 border-black"
-                                        />
-                                        <span className="label-text text-base">
-                                            Biography
-                                        </span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="category"
-                                            value="horror"
-                                            className="radio radio-sm checked:bg-darkBrownShade border-2 border-black"
-                                        />
-                                        <span className="label-text text-base">
-                                            Horror
-                                        </span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="category"
-                                            value="comics"
-                                            className="radio radio-sm checked:bg-darkBrownShade border-2 border-black"
-                                        />
-                                        <span className="label-text text-base">
-                                            Comics
-                                        </span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="label cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="category"
-                                            value="scienceFiction"
-                                            className="radio radio-sm checked:bg-darkBrownShade border-2 border-black"
-                                        />
-                                        <span className="label-text text-base">
-                                            Sci-Fi
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
+
+                            <Select 
+                                onChange={handleBookCategory}
+                                options={bookCategories}></Select>
+
                         </div>
 
                         {/* Field -4 -------------------------------- */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-lg font-bold text-blackShade">
+                                <span className="label-text md:text-lg font-bold text-blackShade">
                                     Author Name
                                 </span>
                             </label>
@@ -171,7 +131,7 @@ const AddBooks = () => {
                                     name="author"
                                     type="text"
                                     placeholder="Enter author name"
-                                    className="input input-bordered w-full"
+                                    className="input text-sm md:text-base input-bordered w-full"
                                 />
                             </label>
                         </div>
@@ -179,7 +139,7 @@ const AddBooks = () => {
                         {/* Field -5 -------------------------------- */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-lg font-bold text-blackShade">
+                                <span className="label-text md:text-lg font-bold text-blackShade">
                                     Short description
                                 </span>
                             </label>
@@ -188,7 +148,7 @@ const AddBooks = () => {
                                     name="description"
                                     type="text"
                                     placeholder="Short description about this book"
-                                    className="input input-bordered w-full"
+                                    className="input text-sm md:text-base input-bordered w-full"
                                 />
                             </label>
                         </div>
@@ -196,7 +156,7 @@ const AddBooks = () => {
                         {/* Field -6 -------------------------------- */}
                         <div className="form-control col-span-full">
                             <label className="label">
-                                <span className="label-text text-lg font-bold text-blackShade">
+                                <span className="label-text md:text-lg font-bold text-blackShade">
                                     Rating
                                 </span>
                             </label>
@@ -216,7 +176,7 @@ const AddBooks = () => {
                             <p>Rating: {ratingDetails}</p>
                         </div>
                         <div className="col-span-full">
-                            <button className="bg-oliveGreenShade text-white text-lg py-3  w-full mt-10">
+                            <button className="bg-oliveGreenShade text-white text-sm md:text-lg py-3  w-full md:mt-10 mt-4">
                                 Add Book
                             </button>
                         </div>
