@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import { useState } from "react";
-import Select from "react-select"
+import Select from "react-select";
 
 const glassEffect = {
     background: "rgba( 255, 255, 255, 0.70 )",
@@ -15,33 +15,69 @@ const glassEffect = {
 };
 
 const bookCategories = [
-    {value: "thriller", label: "Thriller"},
-    {value: "biography", label: "Biography"},
-    {value: "horror", label: "Horror"},
-    {value: "comics", label: "Comics"},
-    {value: "scienceFiction", label: "Science Fiction"},
-    {value: "others", label: "Others"},
-]
+    { value: "thriller", label: "Thriller" },
+    { value: "biography", label: "Biography" },
+    { value: "horror", label: "Horror" },
+    { value: "comics", label: "Comics" },
+    { value: "scienceFiction", label: "Science Fiction" },
+    { value: "others", label: "Others" },
+];
 
 const AddBooks = () => {
+    const [ratingDetails, setRatingDetails] = useState(null);
 
-    const [ratingDetails, setRatingDetails] = useState(null)
+    const handleRatingClick = (rating) => {
+        setRatingDetails(rating);
+    };
 
-    const handleRatingClick = rating => {
-        setRatingDetails(rating)
-    }
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
-    const [selectedCategory, setSelectedCategory] = useState(null)
+    const handleBookCategory = (selectedOptions) => {
+        setSelectedCategory(selectedOptions);
+    };
+    // console.log(selectedCategory.value);
 
-    const handleBookCategory = selectedOptions => {
-        setSelectedCategory(selectedOptions)
-    }
-    // console.log(selectedCategory);
+    const handleAddBooks = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const bookQuantity = form.bookQuantity.value;
+        const image = form.image.value;
+        const author = form.author.value;
+        const description = form.description.value;
 
-    const handleAddBooks = e => {
-        e.preventDefault()
-        const form = e.target
-    }
+        const addBookDetails = {
+            name,
+            bookQuantity,
+            image,
+            bookCategory: selectedCategory.value,
+            author,
+            description,
+            ratingDetails,
+        };
+        // console.log(addBookDetails);
+
+        fetch("http://localhost:2500/allBooksDetails", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(addBookDetails),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data);
+                if (data.insertedId) {
+                    toast.success(
+                        "You have successfully added your book to shelf",
+                        {
+                            position: "top-center",
+                        }
+                    );
+                }
+                form.reset();
+            });
+    };
 
     return (
         <div className="bg-[url('https://i.ibb.co/4ZCbZ8S/addBooks.png')] md:p-20 p-2">
@@ -52,7 +88,7 @@ const AddBooks = () => {
                 <h2 className="text-center md:text-3xl text-xl font-bold underline mt-4 mb-2 md:mb-0 md:mt-10 text-blackShade ">
                     Add Books To Shelf
                 </h2>
-                <form>
+                <form onSubmit={handleAddBooks}>
                     <div className=" max-w-screen-xl drop-shadow-xl mx-auto items-center justify-center md:p-10 grid md:grid-cols-2 grid-cols-1 gap-x-14">
                         {/* Field -1 -------------------------------- */}
                         <div className="form-control">
@@ -113,10 +149,11 @@ const AddBooks = () => {
                                 </span>
                             </label>
 
-                            <Select 
+                            <Select
+                                name="bookCategory"
                                 onChange={handleBookCategory}
-                                options={bookCategories}></Select>
-
+                                options={bookCategories}
+                            ></Select>
                         </div>
 
                         {/* Field -4 -------------------------------- */}
@@ -162,7 +199,7 @@ const AddBooks = () => {
                             </label>
 
                             <Rating
-                            initialRating={ratingDetails}
+                                initialRating={ratingDetails}
                                 onClick={handleRatingClick}
                                 stop={5}
                                 className="space-x-3 text-2xl"
@@ -171,7 +208,6 @@ const AddBooks = () => {
                                     <BsStarFill className="text-darkBrownShade"></BsStarFill>
                                 }
                                 fractions={2}
-                                  
                             ></Rating>
                             <p>Rating: {ratingDetails}</p>
                         </div>
