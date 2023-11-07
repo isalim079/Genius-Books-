@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { useContext, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../router/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -322,9 +322,10 @@ const BookDetails = () => {
                                     </dialog>
                                 </div>
                             )}
+                            <Link to={`/readBooks/${_id}`}>
                             <button className="md:px-4 md:py-2 rounded-md md:bg-oliveGreenShade md:text-lightCoffeeShade underline md:no-underline">
                                 Read
-                            </button>
+                            </button></Link>
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,7 @@ import ErrorPage from "./ErrorPage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import Read from "../pages/Read/Read";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,16 @@ const router = createBrowserRouter([
                         <AllBooks></AllBooks>
                     </PrivateRoute>
                 ),
+                loader: () => fetch("http://localhost:2500/allBooks")
+            },
+            {
+                path: "/readBooks/:category",
+                element: (
+                    <PrivateRoute>
+                        <Read></Read>
+                    </PrivateRoute>
+                ),
+                loader: () => fetch("http://localhost:2500/category"),
             },
             {
                 path: "/borrowedBooks",

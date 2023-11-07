@@ -134,9 +134,7 @@ const BorrowedBooks = () => {
                                 </div>
                             </div>
                         ) : (
-                            <p className="text-center text-3xl">
-                                You have not borrowed any books
-                            </p>
+                           ""
                         )}
                     </>
                 ))}
