@@ -14,6 +14,7 @@ const BookDetails = () => {
 
     const booksDetails = useLoaderData();
     const { category } = useParams();
+    // console.log(category);
     const { user } = useContext(AuthContext);
 
     const findBooks = booksDetails.find(
@@ -34,8 +35,10 @@ const BookDetails = () => {
             category: findBooks.bookCategory,
             name: findBooks.name,
             email: user.email,
+            id: findBooks._id,
             image: findBooks.image,
             borrowedDate: currentDate,
+            bookQuantity: bookQuantity - 1,
             returnedDate: returnedDate,
         };
 
@@ -121,99 +124,204 @@ const BookDetails = () => {
                                 Book Quantity: {newBookQuantity}
                             </p>
                             {/* Open the modal using document.getElementById('ID').showModal() method */}
-                            <button
-                                className="md:px-4 md:py-2 rounded-md md:bg-oliveGreenShade md:text-lightCoffeeShade underline md:no-underline"
-                                onClick={() =>
-                                    document
-                                        .getElementById("my_modal_5")
-                                        .showModal()
-                                }
-                            >
-                                Borrow
-                            </button>
-                            <dialog
-                                id="my_modal_5"
-                                className="modal modal-bottom sm:modal-middle"
-                            >
-                                <div className="modal-box">
-                                    <h3 className="text-center underline mb-4">
-                                        Please fill-up the form bellow
-                                    </h3>
-                                    <div>
-                                        <form onSubmit={handleBorrowBooks}>
+                            {newBookQuantity < 1 ? (
+                                <div>
+                                    <button
+                                        className="md:px-4 md:py-2 rounded-md md:bg-oliveGreenShade md:text-lightCoffeeShade underline md:no-underline"
+                                        disabled
+                                        onClick={() =>
+                                            document
+                                                .getElementById("my_modal_5")
+                                                .showModal()
+                                        }
+                                    >
+                                        Borrow
+                                    </button>
+                                    <dialog
+                                        id="my_modal_5"
+                                        className="modal modal-bottom sm:modal-middle"
+                                    >
+                                        <div className="modal-box">
+                                            <h3 className="text-center underline mb-4">
+                                                Please fill-up the form bellow
+                                            </h3>
                                             <div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text md:text-base">
-                                                            Name
-                                                        </span>
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        name="name"
-                                                        placeholder={
-                                                            user?.displayName ||
-                                                            user?.name
-                                                        }
-                                                        className="input input-bordered"
-                                                        readOnly
-                                                    />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text md:text-base">
-                                                            Email
-                                                        </span>
-                                                    </label>
-                                                    <input
-                                                        type="email"
-                                                        name="email"
-                                                        placeholder={
-                                                            user?.email
-                                                        }
-                                                        className="input input-bordered"
-                                                        readOnly
-                                                    />
-                                                </div>
-                                                <div className="form-control">
-                                                    <label className="label">
-                                                        <span className="label-text md:text-base">
-                                                            Return Date
-                                                        </span>
-                                                    </label>
-                                                    <input
-                                                        type="date"
-                                                        name="returnedDate"
-                                                        placeholder="Enter return date"
-                                                        className="input input-bordered"
-                                                        required
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <button
-                                                        onClick={() =>
-                                                            handleUpdateQuantity(
-                                                                _id
-                                                            )
-                                                        }
-                                                        className="md:px-4 md:py-2 px-2 py-1 bg-oliveGreenShade text-white text-sm mt-6"
-                                                    >
-                                                        Submit
-                                                    </button>
-                                                </div>
+                                                <form
+                                                    onSubmit={handleBorrowBooks}
+                                                >
+                                                    <div>
+                                                        <div className="form-control">
+                                                            <label className="label">
+                                                                <span className="label-text md:text-base">
+                                                                    Name
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                name="name"
+                                                                placeholder={
+                                                                    user?.displayName ||
+                                                                    user?.name
+                                                                }
+                                                                className="input input-bordered"
+                                                                readOnly
+                                                            />
+                                                        </div>
+                                                        <div className="form-control">
+                                                            <label className="label">
+                                                                <span className="label-text md:text-base">
+                                                                    Email
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type="email"
+                                                                name="email"
+                                                                placeholder={
+                                                                    user?.email
+                                                                }
+                                                                className="input input-bordered"
+                                                                readOnly
+                                                            />
+                                                        </div>
+                                                        <div className="form-control">
+                                                            <label className="label">
+                                                                <span className="label-text md:text-base">
+                                                                    Return Date
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type="date"
+                                                                name="returnedDate"
+                                                                placeholder="Enter return date"
+                                                                className="input input-bordered"
+                                                                required
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <button
+                                                                onClick={() =>
+                                                                    handleUpdateQuantity(
+                                                                        _id
+                                                                    )
+                                                                }
+                                                                className="md:px-4 md:py-2 px-2 py-1 bg-oliveGreenShade text-white text-sm mt-6"
+                                                            >
+                                                                Submit
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div className="modal-action">
-                                        <form method="dialog">
-                                            {/* if there is a button in form, it will close the modal */}
-                                            <button className="md:px-4 md:py-2 px-2 py-1 bg-oliveGreenShade text-white text-sm">
-                                                Close
-                                            </button>
-                                        </form>
-                                    </div>
+                                            <div className="modal-action">
+                                                <form method="dialog">
+                                                    {/* if there is a button in form, it will close the modal */}
+                                                    <button className="md:px-4 md:py-2 px-2 py-1 bg-oliveGreenShade text-white text-sm">
+                                                        Close
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </dialog>
                                 </div>
-                            </dialog>
+                            ) : (
+                                <div>
+                                    <button
+                                        className="md:px-4 md:py-2 rounded-md md:bg-oliveGreenShade md:text-lightCoffeeShade underline md:no-underline"
+                                        onClick={() =>
+                                            document
+                                                .getElementById("my_modal_5")
+                                                .showModal()
+                                        }
+                                    >
+                                        Borrow
+                                    </button>
+                                    <dialog
+                                        id="my_modal_5"
+                                        className="modal modal-bottom sm:modal-middle"
+                                    >
+                                        <div className="modal-box">
+                                            <h3 className="text-center underline mb-4">
+                                                Please fill-up the form bellow
+                                            </h3>
+                                            <div>
+                                                <form
+                                                    onSubmit={handleBorrowBooks}
+                                                >
+                                                    <div>
+                                                        <div className="form-control">
+                                                            <label className="label">
+                                                                <span className="label-text md:text-base">
+                                                                    Name
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                name="name"
+                                                                placeholder={
+                                                                    user?.displayName ||
+                                                                    user?.name
+                                                                }
+                                                                className="input input-bordered"
+                                                                readOnly
+                                                            />
+                                                        </div>
+                                                        <div className="form-control">
+                                                            <label className="label">
+                                                                <span className="label-text md:text-base">
+                                                                    Email
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type="email"
+                                                                name="email"
+                                                                placeholder={
+                                                                    user?.email
+                                                                }
+                                                                className="input input-bordered"
+                                                                readOnly
+                                                            />
+                                                        </div>
+                                                        <div className="form-control">
+                                                            <label className="label">
+                                                                <span className="label-text md:text-base">
+                                                                    Return Date
+                                                                </span>
+                                                            </label>
+                                                            <input
+                                                                type="date"
+                                                                name="returnedDate"
+                                                                placeholder="Enter return date"
+                                                                className="input input-bordered"
+                                                                required
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <button
+                                                                onClick={() =>
+                                                                    handleUpdateQuantity(
+                                                                        _id
+                                                                    )
+                                                                }
+                                                                className="md:px-4 md:py-2 px-2 py-1 bg-oliveGreenShade text-white text-sm mt-6"
+                                                            >
+                                                                Submit
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div className="modal-action">
+                                                <form method="dialog">
+                                                    {/* if there is a button in form, it will close the modal */}
+                                                    <button className="md:px-4 md:py-2 px-2 py-1 bg-oliveGreenShade text-white text-sm">
+                                                        Close
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </dialog>
+                                </div>
+                            )}
                             <button className="md:px-4 md:py-2 rounded-md md:bg-oliveGreenShade md:text-lightCoffeeShade underline md:no-underline">
                                 Read
                             </button>
