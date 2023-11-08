@@ -57,7 +57,7 @@ const AddBooks = () => {
         };
         // console.log(addBookDetails);
 
-        fetch("http://localhost:2500/allBooksDetails", {
+        fetch("http://localhost:2500/allBooksDetails",  {
             method: "POST",
             headers: {
                 "content-type": "application/json",

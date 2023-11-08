@@ -136,11 +136,11 @@ const Navbar = () => {
     );
 
     return (
-        <div className="bg-lightCoffeeShade drop-shadow-xl">
+        <div className="bg-lightCoffeeShade md:drop-shadow-xl pb-36 mb:pb-0">
             <div className="navbar max-w-screen-xl mx-auto md:flex md:flex-col md:h-screen md:justify-around md:items-start md:mr-14 md:ml-14">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden ">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -158,7 +158,7 @@ const Navbar = () => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="dropdown-content menu-xs mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                            className="dropdown-content menu-xs mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
                         >
                             {navLinks}
                         </ul>
@@ -203,7 +203,7 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <Link to="/login">
-                            <button className="ml-4 px-10 py-2 bg-oliveGreenShade text-white text-base font-semibold">
+                            <button className="md:ml-4 md:px-10 md:py-2 md:bg-oliveGreenShade text-darkBrownShade  md:text-white text-base font-semibold ml-16">
                                 Login
                             </button>
                         </Link>

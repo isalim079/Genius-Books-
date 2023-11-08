@@ -27,7 +27,7 @@ const BooksCategoryCard = ({ booksCategory }) => {
                 {bookCategory === category ? (
                     <>
                         <div className="">
-                            <div className="card card-side bg-lightCoffeeShade md:shadow-xl md:grid md:grid-cols-12">
+                            <div className="card md:card-side bg-lightCoffeeShade md:shadow-xl md:grid md:grid-cols-12">
                                 <figure className="md:col-span-3">
                                     <img src={image} alt={name} />
                                 </figure>

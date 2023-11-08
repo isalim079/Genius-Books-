@@ -14,14 +14,14 @@ const AllBooks = () => {
     return (
         <div>
             <div>
-                <div className="md:py-20 flex justify-center">
-                    <div className="join w-1/2">
+                <div className="md:py-20 flex justify-center mt-10 mb-10">
+                    <div className="join md:w-1/2">
                         <select
                             onChange={handleFilteredBooks}
                             value={filterAllBooks}
-                            className="select select-bordered join-item border w-full"
+                            className="select select-bordered join-item border md:w-full "
                         >
-                            <option disabled selected>
+                            <option selected>
                                 Filter
                             </option>
                             <option value="thriller">Thriller</option>
@@ -34,7 +34,7 @@ const AllBooks = () => {
                             <option value="others">Others</option>
                         </select>
                         <div className="indicator">
-                            <button className="px-10 py-2 bg-oliveGreenShade text-lightCoffeeShade">
+                            <button className="px-10 md:py-2 bg-oliveGreenShade text-lightCoffeeShade">
                                 Filter
                             </button>
                         </div>

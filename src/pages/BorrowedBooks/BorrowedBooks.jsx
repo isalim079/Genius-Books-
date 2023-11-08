@@ -82,15 +82,15 @@ const BorrowedBooks = () => {
     };
 
     return (
-        <div className=" bg-coffeeColorShade">
-            <h1 className="text-center md:text-3xl font-bold uppercase underline md:pt-16">
+        <div className=" md:bg-coffeeColorShade">
+            <h1 className="text-center md:text-3xl font-bold uppercase underline md:pt-16 py-10 mt-10">
                 Your personal library room
             </h1>
-            <div className="md:grid md:grid-cols-3 md:gap-14 md:p-28 bg-coffeeColorShade">
+            <div className="md:grid md:grid-cols-3 md:gap-14 md:p-28 space-y-10 md:bg-coffeeColorShade">
                 {newBorrowBooks.map((books) => (
                     <>
                         {user?.email === books?.email ? (
-                            <div className="card w-96 md:w-full bg-lightCoffeeShade shadow-xl mx-auto text-darkBrownShade">
+                            <div className="card w-72 md:w-full bg-lightCoffeeShade md:shadow-xl mx-auto text-darkBrownShade">
                                 <figure>
                                     <img
                                         className="md:h-[420px] md:w-full"

@@ -12,6 +12,7 @@ import {
     signOut,
 } from "firebase/auth";
 
+
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
@@ -57,6 +58,9 @@ const AuthProvider = ({ children }) => {
             console.log("user in the auth state changed");
             setUser(currentUser);
             setLoading(false);
+
+            
+
         });
         return () => {
             unSubscribe();
