@@ -73,7 +73,7 @@ const SocialLogin = () => {
                 <div>
                     <button
                         onClick={() => handleSocialLogin(handleGoogleLogin)}
-                        className=" rounded-md mt-5 px-5 justify-center py-2  bg-oliveGreenShade  text-white flex items-center gap-2 transition duration-300 ease-in-out transform hover:scale-105"
+                        className=" rounded-md mt-5 px-5 justify-center py-2  bg-darkBrownShade  text-white flex items-center gap-2 transition duration-300 ease-in-out transform hover:scale-105"
                     >
                         <FcGoogle className="text-xl"></FcGoogle>
                         Google
@@ -82,7 +82,7 @@ const SocialLogin = () => {
                 <div>
                     <button
                         onClick={() => handleSocialLogin(handleGithubLogin)}
-                        className=" rounded-md mt-5 px-5 justify-center py-2  bg-oliveGreenShade text-white  flex items-center gap-2 ml-16 transition duration-300 ease-in-out transform hover:scale-105"
+                        className=" rounded-md mt-5 px-5 justify-center py-2  bg-darkBrownShade text-white  flex items-center gap-2 ml-16 transition duration-300 ease-in-out transform hover:scale-105"
                     >
                         {" "}
                         <AiFillGithub className="text-xl"></AiFillGithub>

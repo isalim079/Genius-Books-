@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import SocialLogin from "../Login/SocialLogin";
 import { AuthContext } from "../../router/AuthProvider";
+import registerImage from "/register.png";
 
 const Register = () => {
     const { registerWithEmailPass } = useContext(AuthContext);
@@ -83,93 +84,102 @@ const Register = () => {
     };
 
     return (
-        <div className="bg-darkBrownShade py-16">
-            <h2 className="md:w-3/4 lg:w-1/2 mx-auto text-3xl text-center my-10 px-4 py-3 bg-oliveGreenShade hover:drop-shadow-lg cursor-pointer text-white ">
-                Please Register
-            </h2>
-
-            <form
-                onSubmit={handleRegister}
-                className="md:w-3/4 lg:w-1/2 mx-auto bg-coffeeColorShade px-7 py-4 drop-shadow-lg mb-10"
-            >
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text text-white md:text-base">
-                            Name
-                        </span>
-                    </label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Enter your name..."
-                        className="input input-bordered"
-                        required
-                    />
+        <div>
+            <div className="flex items-center justify-between md:px-28 md:py-16 space-x-10">
+                <div className="  flex-1">
+                    <img className="w-80 md:ml-12" src={registerImage} />
                 </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text text-white md:text-base">
-                            Photo Url
-                        </span>
-                    </label>
-                    <input
-                        type="text"
-                        name="image"
-                        placeholder="Enter your image url..."
-                        className="input input-bordered"
-                        required
-                    />
+                <div className="flex-1">
+                    <form
+                        onSubmit={handleRegister}
+                        className=" mx-auto bg-coffeeColorShade px-7 py-4 drop-shadow-lg mb-10"
+                    >
+                        <h1 className="underline text-4xl text-center py-4 font-bold text-darkBrownShade">
+                            GENIUS BOOKS
+                        </h1>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white md:text-base">
+                                    Name
+                                </span>
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Enter your name..."
+                                className="input input-bordered"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white md:text-base">
+                                    Photo Url
+                                </span>
+                            </label>
+                            <input
+                                type="text"
+                                name="image"
+                                placeholder="Enter your image url..."
+                                className="input input-bordered"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white md:text-base">
+                                    Email
+                                </span>
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email..."
+                                className="input input-bordered"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text text-white md:text-base">
+                                    Password
+                                </span>
+                            </label>
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Enter your password..."
+                                className="input input-bordered"
+                                required
+                            />
+                            <label className="label">
+                                <a
+                                    href="#"
+                                    className="label-text-alt text-white link link-hover"
+                                >
+                                    Forgot password?
+                                </a>
+                            </label>
+                        </div>
+                        <div className="form-control md:mt-6">
+                            <button className="px-4 py-3 text-lg w-full bg-darkBrownShade text-white rounded-md">
+                                REGISTER
+                            </button>
+                        </div>
+                        <p className="text-center mt-7 text-white">
+                            Already have an account?{" "}
+                            <Link
+                                className="ml-5 underline text-white"
+                                to="/login"
+                            >
+                                Login Now!!
+                            </Link>
+                        </p>
+                        <SocialLogin></SocialLogin>
+                    </form>
+                    <ToastContainer />
                 </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text text-white md:text-base">
-                            Email
-                        </span>
-                    </label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email..."
-                        className="input input-bordered"
-                        required
-                    />
-                </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text text-white md:text-base">
-                            Password
-                        </span>
-                    </label>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Enter your password..."
-                        className="input input-bordered"
-                        required
-                    />
-                    <label className="label">
-                        <a
-                            href="#"
-                            className="label-text-alt text-white link link-hover"
-                        >
-                            Forgot password?
-                        </a>
-                    </label>
-                </div>
-                <div className="form-control md:mt-6">
-                    <button className="px-4 py-3 text-lg w-full bg-oliveGreenShade text-white rounded-md">
-                        REGISTER
-                    </button>
-                </div>
-                <p className="text-center mt-7 text-white">
-                    Already have an account?{" "}
-                    <Link className="ml-5 underline text-white" to="/login">
-                        Login Now!!
-                    </Link>
-                </p>
-                <SocialLogin></SocialLogin>
-            </form>
-            <ToastContainer />
+            </div>
         </div>
     );
 };

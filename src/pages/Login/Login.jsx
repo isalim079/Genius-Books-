@@ -5,15 +5,16 @@ import { useContext } from "react";
 import { AuthContext } from "../../router/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import loginImage from "/login.png"
 
-const glassEffect = {
-    background: "rgba( 255, 255, 255, 0.20 )",
-    "box-shadow": "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-    "backdrop-filter": "blur( 4px )",
-    "-webkit-backdrop-filter": "blur( 4px )",
-    "border-radius": "10px",
-    border: "1px solid rgba( 255, 255, 255, 0.18 )",
-};
+// const glassEffect = {
+//     background: "rgba( 255, 255, 255, 0.20 )",
+//     "box-shadow": "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+//     "backdrop-filter": "blur( 4px )",
+//     "-webkit-backdrop-filter": "blur( 4px )",
+//     "border-radius": "10px",
+//     border: "1px solid rgba( 255, 255, 255, 0.18 )",
+// };
 
 const Login = () => {
     const { loginWithEmailPass } = useContext(AuthContext);
@@ -47,19 +48,22 @@ const Login = () => {
     };
 
     return (
-        <div className="bg-[url('https://i.ibb.co/yyBvHg3/login-Back.jpg')] h-fit bg-cover py-16">
-            <h2
-                className="md:w-3/4 lg:w-1/2 mx-auto px-4 py-3 bg-darkBrownShade hover:drop-shadow-lg cursor-pointer text-white md:text-3xl text-center my-10 shadow-lg"
-                style={glassEffect}
-            >
-                Please Login
-            </h2>
+        <div>
+            <div className="flex items-center justify-around border border-black md:p-20 md:px-28">
 
+        <div>
+                <img className="" src={loginImage} />
+        </div>
+
+            <div className="md:mr-16">
+           
             <form
                 onSubmit={handleLogin}
-                className="md:w-3/4 lg:w-1/2 mx-auto bg-coffeeColorShade px-7 py-4 drop-shadow-lg"
-                style={glassEffect}
+                className=" mx-auto bg-coffeeColorShade px-7 py-6 drop-shadow-lg"
+                // style={glassEffect}
             >
+                <h2 className="text-center md:text-2xl font-semibold uppercase text-darkBrownShade">Please Login</h2>
+                <div className="border border-lightCoffeeShade my-3"></div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text text-lightCoffeeShade md:text-base">
@@ -99,7 +103,7 @@ const Login = () => {
                 <div className="form-control mt-6">
                     <button
                         className="px-4 py-3 text-lg w-full bg-darkBrownShade text-white rounded-md"
-                        style={glassEffect}
+                        // style={glassEffect}
                     >
                         LOGIN
                     </button>
@@ -116,6 +120,8 @@ const Login = () => {
                 <SocialLogin></SocialLogin>
             </form>
             <ToastContainer></ToastContainer>
+        </div>
+            </div>
         </div>
     );
 };
