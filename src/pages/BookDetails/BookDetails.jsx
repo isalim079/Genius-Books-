@@ -42,7 +42,7 @@ const BookDetails = () => {
             returnedDate: returnedDate,
         };
 
-        fetch("http://localhost:2500/borrowedBooks", {
+        fetch("https://assignment-11-server-iota-two.vercel.app/borrowedBooks", {
             method: "GET",
         })
             .then((res) => res.json())
@@ -55,7 +55,7 @@ const BookDetails = () => {
                         position: "top-center",
                     });
                 } else {
-                    fetch("http://localhost:2500/borrowedBooks", {
+                    fetch("https://assignment-11-server-iota-two.vercel.app/borrowedBooks", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",
@@ -82,7 +82,7 @@ const BookDetails = () => {
     };
 
     const handleUpdateQuantity = (id) => {
-        fetch("http://localhost:2500/borrowedBooks", {
+        fetch("https://assignment-11-server-iota-two.vercel.app/borrowedBooks", {
             method: "GET",
         })
             .then((res) => res.json())
@@ -92,7 +92,7 @@ const BookDetails = () => {
                 );
 
                 if (!bookExist) {
-                    fetch(`http://localhost:2500/category/${id}`, {
+                    fetch(`https://assignment-11-server-iota-two.vercel.app/category/${id}`, {
                         method: "PATCH",
                         headers: {
                             "content-type": "application/json",

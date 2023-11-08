@@ -46,7 +46,7 @@ const router = createBrowserRouter([
                         <BooksUpdate></BooksUpdate>
                     </PrivateRoute>
                 ),
-                loader: ({params}) => fetch(`http://localhost:2500/category/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-iota-two.vercel.app/category/${params.id}`)
             },
             {
                 path: "/allBooks",
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
                         <AllBooks></AllBooks>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("http://localhost:2500/allBooks")
+                loader: () => fetch("https://assignment-11-server-iota-two.vercel.app/allBooks")
             },
             {
                 path: "/readBooks/:category",
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
                         <Read></Read>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("http://localhost:2500/category"),
+                loader: () => fetch("https://assignment-11-server-iota-two.vercel.app/category"),
             },
             {
                 path: "/borrowedBooks",
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
                         <BorrowedBooks></BorrowedBooks>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("http://localhost:2500/borrowedBooks"),
+                loader: () => fetch("https://assignment-11-server-iota-two.vercel.app/borrowedBooks"),
             },
             {
                 path: "/booksCategory/:category",
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
                         <BooksCategoryRoute></BooksCategoryRoute>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("http://localhost:2500/category"),
+                loader: () => fetch("https://assignment-11-server-iota-two.vercel.app/category"),
             },
             {
                 path: "/bookDetails/:category",
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
                         <BookDetails></BookDetails>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("http://localhost:2500/category"),
+                loader: () => fetch("https://assignment-11-server-iota-two.vercel.app/category"),
             },
         ],
     },

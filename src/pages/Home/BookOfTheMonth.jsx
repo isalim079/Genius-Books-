@@ -15,7 +15,7 @@ const BookOfTheMonth = () => {
     }, []);
     useEffect(() => {
         axios
-            .get("http://localhost:2500/booksOfTheMonth")
+            .get("https://assignment-11-server-iota-two.vercel.app/booksOfTheMonth")
             .then((res) => {
                 setBookOfTheMonth(res.data);
             })

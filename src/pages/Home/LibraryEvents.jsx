@@ -8,7 +8,7 @@ const LibraryEvents = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:2500/libraryEventsAndFeatures")
+            .get("https://assignment-11-server-iota-two.vercel.app/libraryEventsAndFeatures")
             .then((res) => {
                 setLibraryEventAndFeatures(res.data);
             })

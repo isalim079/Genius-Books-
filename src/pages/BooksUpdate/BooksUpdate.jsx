@@ -46,7 +46,7 @@ const BooksUpdate = () => {
             ratingDetails,
         };
 
-        fetch(`http://localhost:2500/category/${loadSpecificBooks._id}`, {
+        fetch(`https://assignment-11-server-iota-two.vercel.app/category/${loadSpecificBooks._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

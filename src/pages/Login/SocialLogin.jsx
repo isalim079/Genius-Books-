@@ -11,7 +11,7 @@ const SocialLogin = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:2500/geniusBooksUsers")
+            .get("https://assignment-11-server-iota-two.vercel.app/geniusBooksUsers")
             .then((res) => {
                 setGeniusUsers(res.data);
             })
@@ -39,7 +39,7 @@ const SocialLogin = () => {
                     );
 
                     if (!userExists) {
-                        fetch("http://localhost:2500/geniusBooksUsers", {
+                        fetch("https://assignment-11-server-iota-two.vercel.app/geniusBooksUsers", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json",

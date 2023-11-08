@@ -13,7 +13,7 @@ const BorrowedBooks = () => {
     const [borrowBooksQuantity, setBorrowBooksQuantity] = useState();
 
     useEffect(() => {
-        fetch("http://localhost:2500/category")
+        fetch("https://assignment-11-server-iota-two.vercel.app/category")
             .then((res) => res.json())
             .then((data) => {
                 setBorrowBooksQuantity(data);
@@ -35,7 +35,7 @@ const BorrowedBooks = () => {
             confirmButtonText: "Yes, return it!",
         }).then((res) => {
             if (res.isConfirmed) {
-                fetch(`http://localhost:2500/borrowedBooks/${id}`, {
+                fetch(`https://assignment-11-server-iota-two.vercel.app/borrowedBooks/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -51,7 +51,7 @@ const BorrowedBooks = () => {
 
                             // console.log(_id, bookQuantity);
 
-                            fetch(`http://localhost:2500/category/${id}`, {
+                            fetch(`https://assignment-11-server-iota-two.vercel.app/category/${id}`, {
                                 method: "PATCH",
                                 headers: {
                                     "content-type": "application/json",

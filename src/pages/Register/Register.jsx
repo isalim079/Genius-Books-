@@ -66,7 +66,7 @@ const Register = () => {
                 console.log(error.message);
             });
 
-        fetch("http://localhost:2500/geniusBooksUsers", {
+        fetch("https://assignment-11-server-iota-two.vercel.app/geniusBooksUsers", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

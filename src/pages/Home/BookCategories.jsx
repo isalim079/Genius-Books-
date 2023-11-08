@@ -9,7 +9,7 @@ const BookCategories = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:2500/booksCategories")
+            .get("https://assignment-11-server-iota-two.vercel.app/booksCategories")
             .then((res) => {
                 setBooksCategories(res.data);
             })

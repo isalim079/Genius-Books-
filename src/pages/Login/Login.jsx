@@ -30,7 +30,7 @@ const Login = () => {
                 // jwt
                 // const jwtUser = result.user
                 const jwtMail = {email}
-                axios.post("http://localhost:2500/jwt", jwtMail, {withCredentials: true})
+                axios.post("https://assignment-11-server-iota-two.vercel.app/jwt", jwtMail, {withCredentials: true})
                 .then(res => {
                     console.log(res.data)
                     if(res.data.success) {
