@@ -15,7 +15,7 @@ const BookOfTheMonth = () => {
     }, []);
     useEffect(() => {
         axios
-            .get("https://assignment-11-server-r4tang1gd-isalim079.vercel.app/booksOfTheMonth")
+            .get("https://assignment-11-server-e906w3nv9-isalim079.vercel.app/booksOfTheMonth")
             .then((res) => {
                 setBookOfTheMonth(res.data);
             })

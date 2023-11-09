@@ -9,7 +9,7 @@ const BookCategories = () => {
 
     useEffect(() => {
         axios
-            .get("https://assignment-11-server-r4tang1gd-isalim079.vercel.app/booksCategories")
+            .get("https://assignment-11-server-e906w3nv9-isalim079.vercel.app/booksCategories")
             .then((res) => {
                 setBooksCategories(res.data);
             })
