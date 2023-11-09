@@ -1,15 +1,28 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
+import axios from "axios";
 import AllBooksCard from "./AllBooksCard";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../router/AuthProvider";
 
 const AllBooks = () => {
-    const allBooksDataBase = useLoaderData();
+    // const allBooksDataBase = useLoaderData();
+    const { user } = useContext(AuthContext);
 
     const [filterAllBooks, setFilterAllBooks] = useState("");
+    const [allBooksDataBase, setAllBooksDataBase] = useState([]);
 
     const handleFilteredBooks = (e) => {
         setFilterAllBooks(e.target.value);
     };
+
+    useEffect(() => {
+        axios
+            .get(`https://assignment-11-server-r4tang1gd-isalim079.vercel.app/allBooks?email=${user?.email}`, {
+                withCredentials: true,
+            })
+            .then((res) => setAllBooksDataBase(res.data))
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
         <div>
@@ -21,9 +34,7 @@ const AllBooks = () => {
                             value={filterAllBooks}
                             className="select select-bordered join-item border md:w-full "
                         >
-                            <option selected>
-                                Filter
-                            </option>
+                            <option selected>Filter</option>
                             <option value="thriller">Thriller</option>
                             <option value="biography">Biography</option>
                             <option value="horror">Horror</option>

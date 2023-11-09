@@ -11,6 +11,7 @@ import {
     signInWithPopup,
     signOut,
 } from "firebase/auth";
+import axios from "axios";
 
 
 export const AuthContext = createContext(null);
@@ -56,9 +57,33 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log("current user", currentUser);
+
+            const userEmail = currentUser?.email || user?.email
+            const loggedUser = {email: userEmail}
+
             setUser(currentUser);
             setLoading(false);
 
+
+
+
+            // jwt-----
+            if(currentUser){
+                
+                axios.post( "https://assignment-11-server-r4tang1gd-isalim079.vercel.app/jwt", loggedUser, {withCredentials: true})
+                .then(res => {
+                    console.log("token response", res.data)
+                })
+            }
+            else{
+                axios.post("https://assignment-11-server-r4tang1gd-isalim079.vercel.app/logout", loggedUser, {withCredentials: true})
+                .then(res => {
+                    console.log(res.data)
+                })
+            }
+
+
+            
             
 
         });

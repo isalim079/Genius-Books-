@@ -1,14 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Select from "react-select"
+import Select from "react-select";
 import Rating from "react-rating";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import { useState } from "react";
 
-
 const BooksUpdate = () => {
-
     const bookCategories = [
         { value: "thriller", label: "Thriller" },
         { value: "biography", label: "Biography" },
@@ -17,8 +15,8 @@ const BooksUpdate = () => {
         { value: "scienceFiction", label: "Science Fiction" },
         { value: "others", label: "Others" },
     ];
-    
-    const loadSpecificBooks = useLoaderData()
+
+    const loadSpecificBooks = useLoaderData();
     // console.log(loadSpecificBooks);
 
     const [ratingDetails, setRatingDetails] = useState(null);
@@ -27,9 +25,9 @@ const BooksUpdate = () => {
         setRatingDetails(rating);
     };
 
-    const handleUpdateBookData = e => {
-        e.preventDefault()
-        const form = e.target
+    const handleUpdateBookData = (e) => {
+        e.preventDefault();
+        const form = e.target;
         const name = form.name.value;
         const bookQuantity = form.bookQuantity.value;
         const image = form.image.value;
@@ -46,7 +44,7 @@ const BooksUpdate = () => {
             ratingDetails,
         };
 
-        fetch(`https://assignment-11-server-iota-two.vercel.app/category/${loadSpecificBooks._id}`, {
+        fetch(`https://assignment-11-server-r4tang1gd-isalim079.vercel.app/category/${loadSpecificBooks._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -65,21 +63,15 @@ const BooksUpdate = () => {
                     );
                 }
             });
-
-    }
+    };
 
     return (
         <div className="md:p-20 p-2">
-            <div
-                className="font-poppins overflow-hidden bg-lightCoffeeShade md:p-10 p-2"
-               
-            >
+            <div className="font-poppins overflow-hidden bg-lightCoffeeShade md:p-10 p-2">
                 <h2 className="text-center md:text-3xl text-xl font-bold underline mt-4 mb-2 md:mb-0 md:mt-10 text-blackShade ">
                     Update Book Shelf
                 </h2>
-                <form 
-                onSubmit={handleUpdateBookData}
-                >
+                <form onSubmit={handleUpdateBookData}>
                     <div className=" max-w-screen-xl drop-shadow-xl mx-auto items-center justify-center md:p-10 grid md:grid-cols-2 grid-cols-1 gap-x-14">
                         {/* Field -1 -------------------------------- */}
                         <div className="form-control">
@@ -127,7 +119,9 @@ const BooksUpdate = () => {
                             <label className="input-group">
                                 <input
                                     name="bookQuantity"
-                                    defaultValue={loadSpecificBooks?.bookQuantity}
+                                    defaultValue={
+                                        loadSpecificBooks?.bookQuantity
+                                    }
                                     type="number"
                                     placeholder="Quantity of the book"
                                     className="input text-sm md:text-base input-bordered w-full"
@@ -144,7 +138,9 @@ const BooksUpdate = () => {
                             </label>
 
                             <Select
-                            defaultInputValue={loadSpecificBooks?.bookCategory}
+                                defaultInputValue={
+                                    loadSpecificBooks?.bookCategory
+                                }
                                 name="bookCategory"
                                 readonly
                                 options={bookCategories}
@@ -160,7 +156,7 @@ const BooksUpdate = () => {
                             </label>
                             <label className="input-group">
                                 <input
-                                defaultValue={loadSpecificBooks?.author}
+                                    defaultValue={loadSpecificBooks?.author}
                                     name="author"
                                     type="text"
                                     placeholder="Enter author name"
@@ -178,7 +174,9 @@ const BooksUpdate = () => {
                             </label>
                             <label className="input-group">
                                 <input
-                                defaultValue={loadSpecificBooks?.description}
+                                    defaultValue={
+                                        loadSpecificBooks?.description
+                                    }
                                     name="description"
                                     type="text"
                                     placeholder="Short description about this book"
@@ -196,7 +194,6 @@ const BooksUpdate = () => {
                             </label>
 
                             <Rating
-                                
                                 initialRating={ratingDetails}
                                 onClick={handleRatingClick}
                                 stop={5}

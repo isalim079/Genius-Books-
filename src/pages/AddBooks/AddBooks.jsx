@@ -57,7 +57,7 @@ const AddBooks = () => {
         };
         // console.log(addBookDetails);
 
-        fetch("https://assignment-11-server-iota-two.vercel.app/allBooksDetails",  {
+        fetch("https://assignment-11-server-r4tang1gd-isalim079.vercel.app/allBooksDetails",  {
             method: "POST",
             headers: {
                 "content-type": "application/json",
