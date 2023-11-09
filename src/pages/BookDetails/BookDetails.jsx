@@ -47,10 +47,13 @@ const BookDetails = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                const bookExist = data.some(
+                const bookExistName = data.some(
                     (books) => books.name === findBooks.name
                 );
-                if (bookExist) {
+                const bookExistEmail = data.some(
+                    (books) => books.email === user.email
+                );
+                if (bookExistName && bookExistEmail) {
                     toast.error("You have already borrowed this book", {
                         position: "top-center",
                     });
@@ -87,11 +90,14 @@ const BookDetails = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                const bookExist = data.some(
+                const bookExistName = data.some(
                     (books) => books.name === findBooks.name
                 );
+                const bookExistEmail = data.some(
+                    (books) => books.email === user.email
+                );
 
-                if (!bookExist) {
+                if (!(bookExistName && bookExistEmail)) {
                     fetch(`https://assignment-11-server-2-8lefmgsza-isalim079.vercel.app/category/${id}`, {
                         method: "PATCH",
                         headers: {
