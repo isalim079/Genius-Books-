@@ -1,28 +1,22 @@
 // import { useLoaderData } from "react-router-dom";
-import axios from "axios";
+
 import AllBooksCard from "./AllBooksCard";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../router/AuthProvider";
+import {  useState } from "react";
+
+import { useLoaderData } from "react-router-dom";
 
 const AllBooks = () => {
-    // const allBooksDataBase = useLoaderData();
-    const { user } = useContext(AuthContext);
+    const allBooksDataBase = useLoaderData();
+
 
     const [filterAllBooks, setFilterAllBooks] = useState("");
-    const [allBooksDataBase, setAllBooksDataBase] = useState([]);
+
 
     const handleFilteredBooks = (e) => {
         setFilterAllBooks(e.target.value);
     };
 
-    useEffect(() => {
-        axios
-            .get(`https://assignment-11-server-r4tang1gd-isalim079.vercel.app/allBooks?email=${user?.email}`, {
-                withCredentials: true,
-            })
-            .then((res) => setAllBooksDataBase(res.data))
-            .catch((err) => console.log(err));
-    }, []);
+  
 
     return (
         <div>
