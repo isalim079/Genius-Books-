@@ -55,7 +55,7 @@ const router = createBrowserRouter([
                         <AllBooks></AllBooks>
                     </PrivateRoute>
                 ),
-                // loader: () => fetch("https://assignment-11-server-r4tang1gd-isalim079.vercel.app/allBooks")
+                loader: () => fetch("https://assignment-11-server-r4tang1gd-isalim079.vercel.app/allBooks")
             },
             {
                 path: "/readBooks/:category",
