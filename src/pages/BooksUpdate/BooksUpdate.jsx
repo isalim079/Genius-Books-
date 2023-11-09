@@ -46,7 +46,7 @@ const BooksUpdate = () => {
             ratingDetails,
         };
 
-        fetch(`https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/category/${loadSpecificBooks._id}`, {
+        fetch(`https://assignment-11-server-2-8lefmgsza-isalim079.vercel.app/category/${loadSpecificBooks._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
