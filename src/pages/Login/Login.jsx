@@ -6,7 +6,7 @@ import { AuthContext } from "../../router/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loginImage from "/login.png";
-
+import axios from "axios";
 
 const Login = () => {
     const { loginWithEmailPass } = useContext(AuthContext);
@@ -27,10 +27,20 @@ const Login = () => {
 
 
 
-             
+                // jwt
+                // const jwtUser = result.user
+                const jwtMail = {email}
+                axios.post("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/jwt", jwtMail, {withCredentials: true})
+                .then(res => {
+                    console.log(res.data)
+                    if(res.data.success) {
+                        navigate(location?.state ? location.state : "/");
+                    }
+                })
 
 
-                navigate(location?.state ? location.state : "/");
+
+                // navigate(location?.state ? location.state : "/");
             })
             .catch((error) => {
                 console.log(error.code);

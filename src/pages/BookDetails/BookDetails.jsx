@@ -42,7 +42,7 @@ const BookDetails = () => {
             returnedDate: returnedDate,
         };
 
-        fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/borrowedBooks", {
+        fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/borrowedBooks", {
             method: "GET",
         })
             .then((res) => res.json())
@@ -55,7 +55,7 @@ const BookDetails = () => {
                         position: "top-center",
                     });
                 } else {
-                    fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/borrowedBooks", {
+                    fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/borrowedBooks", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",
@@ -82,7 +82,7 @@ const BookDetails = () => {
     };
 
     const handleUpdateQuantity = (id) => {
-        fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/borrowedBooks", {
+        fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/borrowedBooks", {
             method: "GET",
         })
             .then((res) => res.json())
@@ -92,7 +92,7 @@ const BookDetails = () => {
                 );
 
                 if (!bookExist) {
-                    fetch(`https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/category/${id}`, {
+                    fetch(`https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/category/${id}`, {
                         method: "PATCH",
                         headers: {
                             "content-type": "application/json",

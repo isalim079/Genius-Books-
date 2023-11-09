@@ -1,22 +1,15 @@
-// import { useLoaderData } from "react-router-dom";
-
-import AllBooksCard from "./AllBooksCard";
-import {  useState } from "react";
-
 import { useLoaderData } from "react-router-dom";
+import AllBooksCard from "./AllBooksCard";
+import { useState } from "react";
 
 const AllBooks = () => {
     const allBooksDataBase = useLoaderData();
 
-
     const [filterAllBooks, setFilterAllBooks] = useState("");
-
 
     const handleFilteredBooks = (e) => {
         setFilterAllBooks(e.target.value);
     };
-
-  
 
     return (
         <div>
@@ -28,7 +21,9 @@ const AllBooks = () => {
                             value={filterAllBooks}
                             className="select select-bordered join-item border md:w-full "
                         >
-                            <option selected>Filter</option>
+                            <option selected>
+                                Filter
+                            </option>
                             <option value="thriller">Thriller</option>
                             <option value="biography">Biography</option>
                             <option value="horror">Horror</option>

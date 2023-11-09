@@ -15,7 +15,7 @@ const BookOfTheMonth = () => {
     }, []);
     useEffect(() => {
         axios
-            .get("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/booksOfTheMonth")
+            .get("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/booksOfTheMonth")
             .then((res) => {
                 setBookOfTheMonth(res.data);
             })
@@ -55,7 +55,6 @@ const BookOfTheMonth = () => {
                     {bookOfTheMonth.map((books) => (
                         <>
                             <div
-                                key={books._id}
                                 className=" md:px-36 md:py-8"
                                 data-aos="fade-up"
                             >

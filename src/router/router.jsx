@@ -46,7 +46,7 @@ const router = createBrowserRouter([
                         <BooksUpdate></BooksUpdate>
                     </PrivateRoute>
                 ),
-                loader: ({params}) => fetch(`https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/category/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/category/${params.id}`)
             },
             {
                 path: "/allBooks",
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
                         <AllBooks></AllBooks>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/allBooks")
+                loader: () => fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/allBooks")
             },
             {
                 path: "/readBooks/:category",
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
                         <Read></Read>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/category"),
+                loader: () => fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/category"),
             },
             {
                 path: "/borrowedBooks",
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
                         <BorrowedBooks></BorrowedBooks>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/borrowedBooks"),
+                loader: () => fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/borrowedBooks"),
             },
             {
                 path: "/booksCategory/:category",
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
                         <BooksCategoryRoute></BooksCategoryRoute>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/category"),
+                loader: () => fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/category"),
             },
             {
                 path: "/bookDetails/:category",
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
                         <BookDetails></BookDetails>
                     </PrivateRoute>
                 ),
-                loader: () => fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/category"),
+                loader: () => fetch("https://assignment-11-server-kb88i8u8c-isalim079.vercel.app/category"),
             },
         ],
     },
