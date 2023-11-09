@@ -57,7 +57,7 @@ const AddBooks = () => {
         };
         // console.log(addBookDetails);
 
-        fetch("https://assignment-11-server-e906w3nv9-isalim079.vercel.app/allBooksDetails",  {
+        fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/allBooksDetails",  {
             method: "POST",
             headers: {
                 "content-type": "application/json",

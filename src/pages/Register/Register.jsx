@@ -66,7 +66,7 @@ const Register = () => {
                 console.log(error.message);
             });
 
-        fetch("https://assignment-11-server-e906w3nv9-isalim079.vercel.app/geniusBooksUsers", {
+        fetch("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/geniusBooksUsers", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

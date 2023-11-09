@@ -8,7 +8,7 @@ const LibraryEvents = () => {
 
     useEffect(() => {
         axios
-            .get("https://assignment-11-server-e906w3nv9-isalim079.vercel.app/libraryEventsAndFeatures")
+            .get("https://assignment-11-server-jq8r1lvgd-isalim079.vercel.app/libraryEventsAndFeatures")
             .then((res) => {
                 setLibraryEventAndFeatures(res.data);
             })
